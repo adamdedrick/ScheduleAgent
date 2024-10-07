@@ -1,0 +1,27 @@
+General notes:
+Allow cron ( or window scheduler ) is an obvious way to perform timed events, but it is limited when it comes to self monitoring.
+Running a scheduling server with maintenance tasks allows a level of remote control and reporting, not otherwise possible.
+Have a server keep alive in the database as the central repository of truth.
+This means we can have keep alive monitoring processes for further control.
+
+
+
+Future path:
+
+Since the goal seems to be to develop a web scraping scheduler and tracker, the next steps would seem to be:
+1) Move the schedule details to the database and allow multiple scheduled tasks.
+2) Allow the tasks to be defined as local command line processes or web apis ( to offload the webscraping processing if needed ).
+3) Track the start and end of the scrape processes.
+4) Put an node express server to provide status information and controls.
+5) Live schedule updating can be done in the maintenance task.
+6) Status web page - jobs running, schedule details, error handling, start stop schedules etc.
+7) if you have multiple tools to scrape a particular source, they can be put on a round robin approach with auto failover tolerance.
+8) On point of failure add in emailing or whatsapp integraion to provide immediate updates.
+
+
+
+
+Notes of web scraping:
+Since our call i have been doing a bit of interested research into modern scraping techniques.
+I have had a play with extracting a DOM and then feeding it into a local LLM like LLama and then being able to query the data in plain language, which is kinda cool.
+Also the spoofing of api cookies to access the backend server calls on Tiktok look like an interesting area of investigation, loads easier than having to scrape through all the on the fly html creation.
